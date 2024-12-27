@@ -1,0 +1,22 @@
+<!-- index.html -->
+<!-- {% import 'macros.html' as macros %}
+
+{{ macros.navigation_bar() }} -->
+{% for post in posts %}
+  <h2><a href="{{ post.link }}">{{ post.title }}</a></h2>
+{% endfor %}
+
+{% if next_url %}
+  <a href="{{ next_url }}">Next</a>
+{% endif %}
+{% if prev_url %}
+  <a href="{{ prev_url }}">Previous</a>
+{% endif %}
+
+<form action="{{ url_for('post') }}" method="post">
+  {{ form.hidden_tag() }}
+  {{ form.title.label }} {{ form.title() }}
+  {{ form.link.label }} {{ form.link() }}
+  <input type="submit" value="Post">
+</form>
+<!-- {{ macros.footer() }} -->

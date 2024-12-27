@@ -1,0 +1,18 @@
+{% import 'macros.html' as macros %}
+
+{{ macros.navigation_bar() }}
+
+<form action="{{ url_for('search') }}" method="GET">
+    <input type="text" name="query" placeholder="Search...">
+    <button type="submit">Search</button>
+  </form>
+  
+  {% if results %}
+    <ul>
+      {% for result in results %}
+        <li>{{ result }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</form>
+{{ macros.footer() }}
